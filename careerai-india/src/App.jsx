@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { Analytics } from "@vercel/analytics/react";
 
 const THEMES = {
   dark: {
@@ -887,7 +886,6 @@ export default function App() {
       fontFamily: "'DM Sans', 'Segoe UI', sans-serif",
       display: "flex", flexDirection: "column",
     }}>
-      <Analytics />
       {/* Header */}
       <div style={{
         padding: "16px 20px", display: "flex", alignItems: "center", justifyContent: "space-between",
