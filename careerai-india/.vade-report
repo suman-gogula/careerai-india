@@ -1,50 +1,49 @@
-## Vercel Web Analytics Installation
+# Vercel Speed Insights Implementation
 
-Successfully installed and configured Vercel Web Analytics for this React + Vite project.
+## Summary
+Successfully installed and configured Vercel Speed Insights for the CareerAI India React + Vite project.
 
-### Changes Made
+## What Was Done
 
-**1. Package Installation**
-- Installed `@vercel/analytics` version 2.0.1
-- Package added to dependencies in `package.json`
-- Updated `package-lock.json` with new dependency tree
+### 1. Fetched Latest Documentation
+Retrieved the official Vercel Speed Insights quickstart guide from https://vercel.com/docs/speed-insights/quickstart to ensure we followed the most up-to-date installation instructions.
 
-**2. Analytics Integration**
-- Modified `src/App.jsx`:
-  - Added import: `import { Analytics } from "@vercel/analytics/react";`
-  - Integrated `<Analytics />` component in the main App component
-  - Component placed at the top of the main div for optimal tracking
+### 2. Installed Package
+- Added `@vercel/speed-insights` package (version ^2.0.0) to dependencies
+- Used npm to install the package in the careerai-india directory
+- Updated package-lock.json for dependency consistency
 
-**3. Files Modified**
-- `package.json` - Added @vercel/analytics dependency
-- `package-lock.json` - Updated with 136 new packages
-- `src/App.jsx` - Added Analytics import and component
+### 3. Integrated SpeedInsights Component
+Modified `/src/main.jsx`:
+- Added import: `import { SpeedInsights } from '@vercel/speed-insights/react'`
+- Added `<SpeedInsights />` component alongside the existing `<Analytics />` component
+- Placed inside the `<StrictMode>` wrapper as per React best practices
 
-### Implementation Details
+### 4. Verification
+- ✅ Build completed successfully (vite build)
+- ✅ No new linting errors introduced
+- ✅ Package.json and lock file properly updated
 
-Following the official Vercel documentation (fetched from https://vercel.com/docs/analytics/quickstart), 
-the integration uses the React-specific Analytics component from `@vercel/analytics/react`.
+## Modified Files
+- `/careerai-india/package.json` - Added @vercel/speed-insights dependency
+- `/careerai-india/package-lock.json` - Updated with new package and dependencies
+- `/careerai-india/src/main.jsx` - Added SpeedInsights component import and usage
 
-The Analytics component is placed inside the main App component, which ensures it tracks 
-all page views and user interactions throughout the application.
+## Implementation Details
+Following the official Vercel documentation for React applications, the SpeedInsights component was added to the root render location (main.jsx) where it will automatically:
+- Track Core Web Vitals (CLS, FID, LCP, FCP, TTFB, INP)
+- Send performance metrics to Vercel when the app is deployed
+- Work alongside the existing Vercel Analytics integration
 
-### Verification
-
-✅ Build completed successfully (`npm run build`)
-✅ No new linting errors introduced
-✅ Package installation completed without vulnerabilities
-✅ Analytics component properly imported and rendered
-
-### Next Steps
-
-To complete the setup:
+## Next Steps
+To enable Speed Insights:
 1. Deploy the application to Vercel
-2. Enable Web Analytics in the Vercel dashboard for this project
-3. After deployment, verify tracking by checking the Network tab for requests to `/_vercel/insights/*`
-4. View analytics data in the Vercel dashboard under the Analytics tab
+2. Navigate to Speed Insights in the Vercel dashboard
+3. Click "Enable" to activate the feature
+4. The tracking will begin collecting performance data automatically
 
-### Framework Details
-
-- Framework: React 19.2.6 with Vite 8.0.16
-- Package Manager: npm
-- Analytics Package Version: 2.0.1
+## Notes
+- The implementation follows React framework-specific instructions from the official docs
+- SpeedInsights component is lightweight and won't impact application performance
+- Works seamlessly with the existing @vercel/analytics integration already in the project
+- Pre-existing linting error in App.jsx (unused 'dash' variable) is unrelated to this implementation
